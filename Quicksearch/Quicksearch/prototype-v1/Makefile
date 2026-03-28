@@ -1,5 +1,5 @@
 CXX = ccache g++
-CXXFLAGS = -O3 -std=c++17 -pipe `wx-config --cxxflags` -I/usr/local/include
+CXXFLAGS = -O3 -std=c++17 -fPIE -pipe `wx-config --cxxflags` -I/usr/local/include
 LDFLAGS = `wx-config --libs` -L/usr/local/lib/mariadb
 LIBS = -lmariadbcpp -lsodium -lspdlog -lfmt
 
