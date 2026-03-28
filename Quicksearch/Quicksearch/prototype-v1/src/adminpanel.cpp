@@ -3,6 +3,7 @@
 #include "user.hpp"
 #include "userconfigwindow.hpp"
 #include "wx/button.h"
+#include "wx/choice.h"
 #include "wx/event.h"
 #include "wx/gtk/button.h"
 #include "wx/layout.h"
@@ -22,7 +23,6 @@ AdminPanelWindow::AdminPanelWindow(const wxString& title, std::shared_ptr<spdlog
     user{user},
     FILE_LOG{FILE_LOG}
 {
-
     this -> SetFont(wxFont(10, wxFONTFAMILY_DEFAULT,wxFONTSTYLE_NORMAL,wxFONTWEIGHT_NORMAL));
     wxPanel* panel = new wxPanel(this);
     wxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
@@ -40,10 +40,9 @@ AdminPanelWindow::AdminPanelWindow(const wxString& title, std::shared_ptr<spdlog
     wxButton* refreshBtn = new wxButton(panel, wxID_ANY, "Refresh List");
     wxButton* addUserBtn = new wxButton(panel, wxID_ANY, "Add User");
 
-        
     buttonSizer->Add(refreshBtn, 0, wxALL, 10);
     buttonSizer->Add(addUserBtn, 0, wxALL, 10);
-    mainSizer->Add(buttonSizer, 0, wxALIGN_CENTER);
+    mainSizer->Add(buttonSizer, 0, wxALIGN_RIGHT, 20);
     mainSizer->Add(userTable, 1, wxEXPAND | wxLEFT | wxRIGHT | wxBOTTOM, 20);
 
     panel->SetSizer(mainSizer);
@@ -56,8 +55,14 @@ AdminPanelWindow::AdminPanelWindow(const wxString& title, std::shared_ptr<spdlog
         this -> showUserMasterlist();
     });
 
+    addUserBtn -> Bind(wxEVT_BUTTON, &AdminPanelWindow::addNewUser, this);
+
     // triggers to open user configuration window of the selected user in the list
     userTable -> Bind(wxEVT_DATAVIEW_ITEM_ACTIVATED, &AdminPanelWindow::onUserClick, this);
+}
+
+void AdminPanelWindow::addNewUser(wxCommandEvent& event) {
+    (new UserConfigWindow("Add New User", nullptr, 0, "", "", "")) -> Show();
 }
 
 void AdminPanelWindow::showUserMasterlist() {

@@ -2,6 +2,7 @@
 
 #include "user.hpp"
 #include "logs.hpp"
+#include "wx/event.h"
 #include "wx/gtk/frame.h"
 #include <memory>
 #include <spdlog/logger.h>
@@ -24,5 +25,7 @@ private:
     bool isAdmin;
 
     void showUserMasterlist();
+
+    void addNewUser(wxCommandEvent &event);
     void onUserClick(wxDataViewEvent &event);
 };
