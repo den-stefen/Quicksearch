@@ -86,6 +86,15 @@ body{
   font-size:11px;
   padding:2px 4px;
   background:transparent;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+.textarea{
+  resize:none;
+  min-height:60px;
+  line-height:1.4;
+  white-space:pre-wrap;
+  overflow-wrap:break-word;
 }
 
 /* ===== SECTION ===== */
@@ -120,8 +129,18 @@ table{
   font-size:10px;
 }
 
+.box {
+    padding: 5px;
+     border:1px solid #bbb;
+}
+
+#container-box-for-total-amount {
+    border-top: 1px solid #bbb;
+}
+
 td{
-  border:1px solid #bbb;
+  /* border:1px solid #bbb; */
+  outline: none !important;
   padding:6px;
   vertical-align:top;
 }
