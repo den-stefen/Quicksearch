@@ -20,10 +20,10 @@ window.onload = function() {
     document.getElementById("stub-credentials").value = savedData.CREDENTIALS;
     document.getElementById("stub2-credentials").value = savedData.CREDENTIALS;
 
-    document.getElementById("summary-previous-amount").value = "P " + savedData.BALANCE;
-    document.getElementById("summary-previous-total").value = "P " + savedData.BALANCE;
+    document.getElementById("summary-previous-amount").value = "P " + savedData.BALANCE.toLocaleString();
+    document.getElementById("summary-previous-total").value = "P " + savedData.BALANCE.toLocaleString();
 
-    document.getElementById("summary-amount-due").value = "P " + savedData.INSTALLMENT;
+    document.getElementById("summary-amount-due").value = "P " + savedData.INSTALLMENT.toLocaleString();
 
     document.getElementById("top-client-amount-due").value = "P " + 
     (Number(savedData.INSTALLMENT) + Number(savedData.BALANCE)).toLocaleString() + ".00";
