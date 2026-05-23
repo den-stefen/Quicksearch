@@ -19,6 +19,26 @@ window.onload = function() {
 
     document.getElementById("stub-credentials").value = savedData.CREDENTIALS;
     document.getElementById("stub2-credentials").value = savedData.CREDENTIALS;
+
+    document.getElementById("summary-previous-amount").value = "P " + savedData.BALANCE;
+    document.getElementById("summary-previous-total").value = "P " + savedData.BALANCE;
+
+    document.getElementById("summary-amount-due").value = "P " + savedData.INSTALLMENT;
+
+    document.getElementById("top-client-amount-due").value = "P " + 
+    (Number(savedData.INSTALLMENT) + Number(savedData.BALANCE)).toLocaleString() + ".00";
+
+    document.getElementById("summary-total").value = "P " + 
+    (Number(savedData.INSTALLMENT)).toLocaleString() + ".00";
+
+    document.getElementById("summary-amount-to-pay").value = "P " + 
+    (Number(savedData.INSTALLMENT) + Number(savedData.BALANCE)).toLocaleString() + ".00";
+
+    document.getElementById("stub-amount-due").value = "P " + 
+    (Number(savedData.INSTALLMENT) + Number(savedData.BALANCE)).toLocaleString() + ".00";
+
+    document.getElementById("stub2-amount-due").value = "P " + 
+    (Number(savedData.INSTALLMENT) + Number(savedData.BALANCE)).toLocaleString() + ".00";
     
 
     console.log(savedData.CLIENTS_NAME);

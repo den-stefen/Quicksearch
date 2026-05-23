@@ -155,6 +155,8 @@ nlohmann::json DatabaseService::fetchCustomerData() {
             customer["F_CLAMP"]         = std::string(res->getString("F_CLAMP"));
             customer["REMARKS"]         = std::string(res->getString("REMARKS"));
             customer["INSTALLED_BY"]    = std::string(res->getString("INSTALLED_BY"));
+            customer["BALANCE"]    = std::string(res->getString("BALANCE"));
+            customer["INSTALLMENT"]    = std::string(res->getString("INSTALLMENT"));
 
             customerList.push_back(customer);
         }
@@ -318,7 +320,7 @@ bool DatabaseService::updateCustomer(
     const std::string& SOCIAL_MEDIA,const std::string& OCCUPATION, const std::string& DATE_OF_BIRTH, 
     const std::string& PLACE_OF_BIRTH,const std::string& OPTICAL_INFO, const std::string& SC_CONNECTOR, 
     const std::string& FIBER_DROP,const std::string& TAPPING_CLIP, const std::string& CABLE_TIE, 
-    const std::string& F_CLAMP,const std::string& REMARKS,  const std::string& STATUS, const std::string& INSTALLED_BY
+    const std::string& F_CLAMP,const std::string& REMARKS,  const std::string& STATUS, const std::string& BALANCE, const std::string& INSTALLMENT,  const std::string& INSTALLED_BY
 
 ) {
     std::lock_guard<std::mutex> lock(dbMutex);
@@ -338,7 +340,7 @@ bool DatabaseService::updateCustomer(
         "TAPPING_CLIP = ?, CABLE_TIE = ?, F_CLAMP = ?, "
 
         // Group 4: Administrative
-        "REMARKS = ?, INSTALLED_BY = ?, STATUS = ? " 
+        "REMARKS = ?, INSTALLED_BY = ?, STATUS = ?, BALANCE = ?, INSTALLMENT = ? " 
         // The Guardrail
         "WHERE ID = ?";
 
@@ -376,8 +378,12 @@ bool DatabaseService::updateCustomer(
         stmt->setString(20, INSTALLED_BY);
         stmt->setString(21, STATUS);
 
+        // FINANCE
+        stmt->setString(22, BALANCE);
+        stmt->setString(23, INSTALLMENT);
+
         // The Guardrail (WHERE clause)
-        stmt->setString(22, ID);
+        stmt->setString(24, ID);
 
 
         auto rowAffected = stmt->executeUpdate();

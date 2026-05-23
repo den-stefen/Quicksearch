@@ -39,6 +39,7 @@
                             <th>STATUS</th>
                             <th>ID</th>
                             <th>NAME</th>
+                            <th>BALANCE</th>
                             <th>CREDENTIALS</th>
                             <th>ADDRESS</th>
                             <th>PLAN</th>
@@ -58,6 +59,7 @@
                             <th>FCLAMP</th>
                             <th>REMARKS</th>
                             <th>INSTALLER</th>
+                            <th>INSTALLMENT</th>
                         </tr>
                     </thead>
                     <tbody id="tableBody"></tbody>
@@ -148,11 +150,26 @@
                 <div class="history-scroll-area">
                     <section class="info-card full-width">
 
-                        <div id="payment-history-ribbon">
-                             <h3>Payment History</h3>
-                             <button id="add-history-btn" onclick="showPaymentHistoryForm()"> Add Payment Record </button>
-                        </div>
-                       
+                        <div id="payment-history-container">
+                            <div id="payment-history-header">
+                                <button id="add-history-btn" onclick="showPaymentHistoryForm()">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                                Add Payment Record
+                                </button>
+                            </div>
+                            
+                            <div id="payment-history-stats">
+                                <div class="field-group">
+                                <label for="balance-input">Balance</label>
+                                <input type="text" id="balance-info" placeholder="$0.00">
+                                </div>
+                                
+                                <div class="field-group">
+                                <label for="status-input">Installment</label>
+                                <input type="text" id="installment-info" placeholder="1000">
+                                </div>
+                            </div>
+                            </div>
                         <div class="table-wrapper">
                             <table class="payment-table">
                             
@@ -257,6 +274,12 @@
                             <label>Service Plan</label>
                             <input type="text" id="m-plan">
                         </div>
+
+                        <div class="input-group">
+                            <label>Installment Pay</label>
+                            <input type="text" id="m-installment">
+                        </div>
+
                         <div class="input-group">
                             <label>Date Applied</label>
                             <input type="date" id="m-applied">

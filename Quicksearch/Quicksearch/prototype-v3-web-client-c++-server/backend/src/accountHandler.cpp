@@ -151,6 +151,8 @@ bool AccountHandler::updateCustomer(const nlohmann::json& JSONreq) {
             JSONreq.at("F_CLAMP").get<std::string>(),
             JSONreq.at("REMARKS").get<std::string>(),
             JSONreq.at("STATUS").get<std::string>(),
+            JSONreq.at("BALANCE").get<std::string>(),
+            JSONreq.at("INSTALLMENT").get<std::string>(),
             JSONreq.at("INSTALLED_BY").get<std::string>()
         );
         return true;

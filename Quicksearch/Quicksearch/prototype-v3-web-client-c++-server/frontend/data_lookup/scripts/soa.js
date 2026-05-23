@@ -8,6 +8,9 @@ function storeInfoToSession() {
    const data = {
         ID: clientData.ID, 
         CLIENTS_NAME: takeInput('view-name'),
+        STATUS: document.getElementById('view-status').value,
+        BALANCE: document.getElementById('balance-info').value,
+        INSTALLMENT: document.getElementById('installment-info').value,
         PLAN: takeInput('view-plan'),
         CREDENTIALS: takeInput('view-creds'),
         DATE_APPLIED: takeInput('view-applied'),
