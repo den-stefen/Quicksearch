@@ -19,7 +19,6 @@
 /* ─── FONT DELEGATION ─── */
 @font-face {
     font-family: 'Quicksand';
-    /* Using the variable font to cover all weights (300 to 700) */
     src: url('../../assets/Quicksand/Quicksand-VariableFont_wght.ttf') format('truetype');
     font-weight: 300 700;
     font-style: normal;
@@ -31,7 +30,6 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* This forces every element to inherit your font */
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -42,7 +40,11 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* ─── MODAL OVERLAY ─── */
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 10px; }
+
+/* ─── MODAL OVERLAY & SHELL ─── */
 #profile-modal-background {
     display: none;
     position: fixed;
@@ -57,7 +59,6 @@ html, body {
 
 #profile-modal-background.active { display: flex; }
 
-/* ─── MODAL SHELL ─── */
 .modal-wrapper {
     display: flex;
     width: 150%;
@@ -131,7 +132,6 @@ html, body {
     color: var(--text-primary);
 }
 
-/* ─── SCROLLABLE AREA ─── */
 .content-body {
     flex: 1;
     overflow-y: auto;
@@ -140,7 +140,7 @@ html, body {
     background: var(--surface-ground);
 }
 
-/* ─── INFO GRID ─── */
+/* ─── INFO GRID & CARDS ─── */
 .info-grid {
     flex-shrink: 0;
     display: grid;
@@ -159,57 +159,7 @@ html, body {
 
 .info-card.full-width { grid-column: span 12; }
 
-/* ─── HISTORY SECTION ─── */
-.history-scroll-area {
-    flex-shrink: 0; 
-    padding: 0 32px 32px 32px;
-}
-
-.history-card {
-    background: var(--surface);
-    border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-lg);
-    padding: 24px;
-    display: flex;
-    flex-direction: column;
-}
-
-.table-wrapper {
-    max-height: 350px;
-    overflow-y: auto;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--border-subtle);
-}
-
-/* ─── TABLE DESIGN ─── */
-.payment-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-}
-
-.payment-table thead th {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: var(--surface-elevated);
-    padding: 12px 20px;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    border-bottom: 2px solid var(--border-subtle);
-    text-align: left;
-}
-
-.payment-table td {
-    padding: 12px 20px;
-    border-bottom: 1px solid var(--border-subtle);
-    font-size: 0.875rem;
-    font-weight: 600; /* Made slightly bolder for Quicksand visibility */
-}
-
-/* ─── FORM ELEMENTS ─── */
+/* ─── FORM ELEMENTS (GLOBAL) ─── */
 .field-group {
     background: var(--surface-elevated);
     padding: 10px 14px;
@@ -224,42 +174,28 @@ html, body {
     color: var(--text-tertiary);
     text-transform: uppercase;
     margin-bottom: 4px;
+    letter-spacing: 0.05em;
 }
 
-/* Modernized Select Styling */
 .field-group select {
     display: block;
     width: 100%;
-    background: transparent; /* Lets the container background handle it */
-    color: var(--text-primary, #ffffff);
+    background: transparent;
+    color: var(--text-primary);
     font-size: 0.95rem;
     font-weight: 500;
     border: none;
     outline: none;
-    padding: 4px 24px 4px 0; /* Extra right padding to clear the arrow */
+    padding: 4px 24px 4px 0;
     margin: 0;
     cursor: pointer;
-    
-    /* Removes default system styling */
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-
-    /* Custom modern dropdown arrow (SVG Data URI) */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(255,255,255,0.5)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='rgba(148,163,184,1)' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right center;
     background-size: 16px;
-}
-
-.field-group label {
-    display: block;
-    font-size: 0.65rem;
-    font-weight: 700;
-    color: var(--text-tertiary);
-    text-transform: uppercase;
-    margin-bottom: 4px;
-    letter-spacing: 0.05em; /* Cleaner look for uppercase */
 }
 
 .editable-field {
@@ -285,7 +221,7 @@ html, body {
     text-align: center;
 }
 
-/* ─── BUTTONS ─── */
+/* ─── BUTTONS (GLOBAL) ─── */
 #update-btn {
     width: 100%;
     padding: 14px;
@@ -295,7 +231,7 @@ html, body {
     border-radius: var(--radius-md);
     font-weight: 700;
     cursor: pointer;
-    transition: 0.2s;
+    transition: var(--transition-fast);
 }
 
 #update-btn:hover { background: var(--primary); }
@@ -308,98 +244,240 @@ html, body {
     color: var(--text-tertiary);
 }
 
-#add-history-btn {
-    /* Positioning & Spacing */
-    display: inline-block;
-    margin-bottom: 15px;
-    padding: 10px 20px;
-    
-    /* Colors & Typography */
-    background-color: #2563eb; /* Modern Primary Blue */
-    color: #ffffff;
-    font-size: 14px;
+/* ─── HISTORY SECTION & TABLE ─── */
+.history-scroll-area {
+    flex-shrink: 0; 
+    padding: 0 32px 32px 32px;
+}
+
+.history-card {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-wrapper {
+    max-height: 350px;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    border-top: none; /* Merges smoothly with the ribbon above it */
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.payment-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--surface-elevated);
+    padding: 12px 20px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--border-subtle);
+    text-align: left;
+}
+
+.payment-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--border-subtle);
+    font-size: 0.875rem;
     font-weight: 600;
-    font-family: 'Inter', sans-serif; /* Clean sans-serif */
-    
-    /* Borders & Shape */
+}
+
+/* ════════════════════════════════════════════════════════
+   THE PAYMENT HISTORY RIBBON (Fully integrated & themed)
+   ════════════════════════════════════════════════════════ */
+
+#payment-history-ribbon {
+    background: var(--surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Break the container layout so Button and Header move independently */
+#payment-history-header {
+    display: contents; 
+}
+
+/* Title left on the edge */
+#payment-history-header h3 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 700;
+    white-space: nowrap;
+    margin-right: auto; /* Magic layout wedge */
+}
+
+/* The Data Fields Container inside Ribbon */
+#payment-history-ribbon .field-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin-bottom: 0; /* Negate global form margins */
+    order: 1; /* Keep beside button */
+}
+
+#payment-history-ribbon .field-group label {
+    margin-bottom: 0; /* Keep inline */
+    white-space: nowrap;
+}
+
+#payment-history-ribbon .field-group input {
+    padding: 6px 12px;
+    border: 1px solid var(--border-default);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    background: var(--surface);
+    width: 110px;
+    transition: all var(--transition-fast);
+}
+
+#payment-history-ribbon .field-group input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+/* The Add Button inside Ribbon */
+#add-history-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary);
+    color: var(--surface);
     border: none;
     border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    font-weight: 600;
     cursor: pointer;
-    
-    /* Modern Effects */
-    transition: all 0.2s ease-in-out;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-    outline: none;
+    white-space: nowrap;
+    order: 2; /* Docked right next to inputs */
+    transition: all var(--transition-fast);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Hover State: Slightly lighter blue and lift effect */
 #add-history-btn:hover {
-    background-color: #3b82f6;
-    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+    background-color: var(--primary-dark);
     transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
 }
 
-/* Active State: "Pressed" effect */
 #add-history-btn:active {
-    background-color: #1d4ed8;
+    background-color: var(--text-primary);
     transform: translateY(0);
 }
 
-/* Accessibility: Focus ring for keyboard users */
-#add-history-btn:focus-visible {
- 
+/* ════════════════════════════════════════════════════════
+   THE PAYMENT HISTORY RIBBON (Updated for Installments)
+   ════════════════════════════════════════════════════════ */
+
+   /* 1. Main Container */
+#payment-history-container {
     display: flex;
-    flex-direction: row;      /* Arranges items side-by-side */
-    align-items: center;      /* Centers items vertically relative to each other */
-    justify-content: flex-start; /* Keeps them to the left; use 'space-between' to push them to opposite ends */
-    gap: 20px;                /* Adds modern spacing between the elements */
-    width: 100%;              /* Ensures the ribbon spans the full container */
-
-}
-
-/* The Horizontal Ribbon Container */
-#payment-history-ribbon {
-    display: flex;
-    flex-direction: row;      /* Force horizontal alignment */
-    align-items: center;      /* Vertically center the text and button */
-    justify-content: space-between; /* Pushes Title to left, Button to right */
-    padding: 10px 0;          /* Adds some breathing room above/below */
-    margin-bottom: 20px;      /* Space between ribbon and the table */
-}
-
-/* Reset h3 margins to prevent alignment "jumping" */
-#payment-history-ribbon h3 {
-    margin: 0;
-    font-family: 'Inter', sans-serif;
-    color: #1e293b;           /* Dark slate for a modern look */
-}
-
-/* Your Modern Blue Button */
-#add-history-btn {
-    background-color: #2563eb;
-    color: #ffffff;
-    padding: 8px 16px;
-    font-size: 14px;
-    font-weight: 600;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-#add-history-btn:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
-}
-
-/* Table Wrapper for spacing */
-.table-wrapper {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between; /* Forces the two groups to opposite ends */
+    background: var(--surface, #ffffff);
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    border-radius: 12px 12px 0 0;
+    padding: 16px 24px;
     width: 100%;
-    overflow-x: auto; /* Keeps things mobile friendly */
+    box-sizing: border-box;
+    border-bottom: none; /* Merges smoothly with the table */
 }
 
-/* ─── SCROLLBAR ─── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 10px; }
+/* 2. Left Side: Balance & Installment (Forced to the left using order: 1) */
+#payment-history-stats {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    order: 1; /* MAGIC: Swaps this to be the first item visually */
+}
+
+/* 3. Individual Fields */
+#payment-history-stats .field-group {
+    display: flex;
+    flex-direction: row; /* Puts label and input side-by-side */
+    align-items: center;
+    gap: 12px;
+    background: var(--surface-elevated, #f8fafc);
+    border: 1px solid var(--border-subtle, #e2e8f0);
+    border-radius: 8px;
+    padding: 6px 12px;
+    margin: 0;
+}
+
+#payment-history-stats .field-group label {
+    margin: 0;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary, #64748b);
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+#payment-history-stats .field-group input {
+    padding: 6px 12px;
+    border: 1px solid var(--border-default, #cbd5e1);
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary, #1e293b);
+    background: var(--surface, #ffffff);
+    width: 120px;
+    outline: none;
+}
+
+/* 4. Right Side: Button Wrapper (Forced to the right using order: 2) */
+#payment-history-header {
+    display: flex;
+    align-items: center;
+    order: 2; /* MAGIC: Swaps this to be the last item visually */
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Button Styling */
+#add-history-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary, #2563eb);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 18px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all var(--transition-fast, 0.2s ease)
+}

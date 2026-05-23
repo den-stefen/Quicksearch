@@ -58,9 +58,9 @@ async function deleteCustomer(e) {
     // Extracting data from table columns (Indices match <thead>)
     let cells = row.cells;
     let customerToDelete = {
-        ID:                 cells[1].innerText,
-        CLIENTS_NAME:       cells[2].innerText,
-        CREDENTIALS:        cells[3].innerText,
+        ID:                 cells[2].innerText,
+        CLIENTS_NAME:       cells[3].innerText,
+        CREDENTIALS:        cells[5].innerText,
     };
 
     console.log(customerToDelete);

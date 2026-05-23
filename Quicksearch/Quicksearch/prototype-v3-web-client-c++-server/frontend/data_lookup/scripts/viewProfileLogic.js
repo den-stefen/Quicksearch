@@ -20,25 +20,27 @@ document.addEventListener('click', function(e) {
         STATUS:         cells[1].innerText,  
         ID:             cells[2].innerText,  
         CLIENTS_NAME:   cells[3].innerText,
-        CREDENTIALS:    cells[4].innerText,
-        ADDRESS:        cells[5].innerText,
-        PLAN:           cells[6].innerText,
-        DATE_APPLIED:   cells[7].innerText,
-        CONTACT_NO:     cells[8].innerText,
-        AGE:            cells[9].innerText,
-        SEX:            cells[10].innerText,
-        SOCIAL_MEDIA:   cells[11].innerText,
-        OCCUPATION:     cells[12].innerText,
-        DATE_OF_BIRTH:  cells[13].innerText,
-        PLACE_OF_BIRTH: cells[14].innerText,
-        OPTICAL_INFO:   cells[15].innerText,
-        SC_CONNECTOR:   cells[16].innerText,
-        FIBER_DROP:     cells[17].innerText,
-        TAPPING_CLIP:   cells[18].innerText,
-        CABLE_TIE:      cells[19].innerText,
-        F_CLAMP:        cells[20].innerText,
-        REMARKS:        cells[21].innerText,
-        INSTALLED_BY:   cells[22].innerText,
+        BALANCE:        cells[4].innerText,
+        CREDENTIALS:    cells[5].innerText,
+        ADDRESS:        cells[6].innerText,
+        PLAN:           cells[7].innerText,
+        DATE_APPLIED:   cells[8].innerText,
+        CONTACT_NO:     cells[9].innerText,
+        AGE:            cells[10].innerText,
+        SEX:            cells[11].innerText,
+        SOCIAL_MEDIA:   cells[12].innerText,
+        OCCUPATION:     cells[13].innerText,
+        DATE_OF_BIRTH:  cells[14].innerText,
+        PLACE_OF_BIRTH: cells[15].innerText,
+        OPTICAL_INFO:   cells[16].innerText,
+        SC_CONNECTOR:   cells[17].innerText,
+        FIBER_DROP:     cells[18].innerText,
+        TAPPING_CLIP:   cells[19].innerText,
+        CABLE_TIE:      cells[20].innerText,
+        F_CLAMP:        cells[21].innerText,
+        REMARKS:        cells[22].innerText,
+        INSTALLED_BY:   cells[23].innerText,
+        INSTALLMENT:    cells[24].innerText
 
     };
 
@@ -71,6 +73,8 @@ function openProfile(clientData) {
      // Direct Mapping to the Template IDs we created
 
     document.getElementById('view-status').value = clientData.STATUS;
+    document.getElementById('balance-info').value = clientData.BALANCE;
+    document.getElementById('installment-info').value = clientData.INSTALLMENT;
 
     writeToUI('view-name',    clientData.CLIENTS_NAME);
     writeToUI('customer-name',clientData.CLIENTS_NAME);
@@ -118,6 +122,8 @@ document.getElementById('update-btn').addEventListener('click', async function()
         ID: clientData.ID, 
         CLIENTS_NAME: takeInput('view-name'),
         STATUS: document.getElementById('view-status').value,
+        BALANCE: document.getElementById('balance-info').value,
+        INSTALLMENT: document.getElementById('installment-info').value,
         PLAN: takeInput('view-plan'),
         CREDENTIALS: takeInput('view-creds'),
         DATE_APPLIED: takeInput('view-applied'),

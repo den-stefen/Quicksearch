@@ -74,7 +74,7 @@ function renderTableRows(dataList) {
 
         row.innerHTML = `
             <td>
-                <button class="delete-btn" data-id="${c.ID}">
+                <button class="delete-btn" data-id="${c.ID}" onclick="deleteCustomer(event)">
                     <img src="../assets/trasbhin.png">
                 </button>
             </td>
@@ -84,6 +84,7 @@ function renderTableRows(dataList) {
             
             <td>${c.ID ?? ""}</td>
             <td>${c.CLIENTS_NAME ?? ""}</td>
+            <td>${c.BALANCE ?? ""}</td>
             <td>${c.CREDENTIALS ?? ""}</td>
             <td>${c.ADDRESS ?? ""}</td>
             <td>${c.PLAN ?? ""}</td>
@@ -103,6 +104,7 @@ function renderTableRows(dataList) {
             <td>${c.F_CLAMP ?? ""}</td>
             <td>${c.REMARKS ?? ""}</td>
             <td>${c.INSTALLED_BY ?? ""}</td>
+            <td>${c.INSTALLMENT ?? ""}</td>
         `;
 
         fragment.appendChild(row);
