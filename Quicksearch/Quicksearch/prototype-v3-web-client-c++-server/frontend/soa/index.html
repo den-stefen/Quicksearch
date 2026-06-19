@@ -10,7 +10,6 @@
 
 <body>
 
-<!-- MODAL -->
 <div class="modal-overlay">
 
   <div class="modal-container">
@@ -21,14 +20,12 @@
 
     <div class="page">
 
-      <!-- HEADER -->
       <div class="header">
         <img src="../assets/683115129_1359027916053255_2329588610600427561_n.png">
       </div>
 
       <div class="title">STATEMENT OF ACCOUNT</div>
 
-      <!-- TOP -->
       <div class="top">
 
         <div class="card">
@@ -65,12 +62,12 @@
 
           <div class="row">
             <span class="label">Billing Period</span>
-            <input class="input" id="top-billing-period" style="font-weight:bold;" type="" value="MAY 1-31, 2026">
+            <select class="input" id="top-billing-period" style="font-weight:bold; cursor:pointer;"></select>
           </div>
 
           <div class="row">
             <span class="label">Due Date</span>
-            <input class="input" id="top-due-date" style="font-weight:bold;" type="date" >
+            <select class="input" id="top-due-date" style="font-weight:bold; cursor:pointer;"></select>
           </div>
 
           <div class="row">
@@ -82,12 +79,10 @@
 
       </div>
 
-      <!-- SUMMARY -->
       <div class="section">STATEMENT SUMMARY</div>
 
       <div class="grid">
 
-        <!-- PREVIOUS BILL -->
         <div class="box">
           <h4>PREVIOUS BILL</h4>
 
@@ -122,7 +117,6 @@
           </table>
         </div>
 
-        <!-- CURRENT BILL -->
         <div class="box">
           <h4>CURRENT BILL</h4>
 
@@ -175,18 +169,15 @@
 
       </div>
 
-      <!-- NOTICE -->
       <div class="notice">
         Please keep your account current to avoid internet disconnection, Thank You!
       </div>
 
-      <!-- OFFICE -->
       <div class="office">
         <b>Office:</b> Block 13, Lot 865, Phase 1A, Townville, Brgy. Sto. Cristo, SJDM Bulacan<br>
         <b>Customer Service Contact:</b> 09362169215<br>
       </div>
 
-      <!-- STUB 1 -->
       <div class="stub">
 
         <div class="stub-title">QUICKCON PAYMENT STUB</div>
@@ -202,9 +193,18 @@
 
             <div class="line"><span>AMOUNT</span><input id="stub-amount-due" value="P 1,000.00" style="font-weight:bold; font-size: 15px;"></div>
             <div class="line"><span>CUSTOMER ID</span><input id="stub-credentials" style="font-weight:bold;"></div>
-            <div class="line"><span>BILLING</span><input id="stub-billing" style="font-weight:bold;" value="MAY 1-31, 2026"></div>
-            <div class="line"><span>DUE DATE</span><input id="stub-due-date" type="date" style="font-weight:bold;"></div>
-            <div class="line"><span>GCASH/MAYA</span><input id="stub-gcash" style="font-weight:bold;" value="09362169215"></div>
+            <div class="line">
+              <span>BILLING</span>
+              <input class="stub-billing-input" style="font-weight:bold;" readonly>
+            </div>
+            <div class="line">
+              <span>DUE DATE</span>
+              <input class="stub-due-date-input" style="font-weight:bold;" readonly>
+            </div>
+            <div class="line">
+              <span>GCASH/MAYA</span>
+              <input id="stub-gcash" style="font-weight:bold;" value="09362169215">
+            </div>
 
           </div>
 
@@ -225,7 +225,6 @@
 
       </div>
 
-      <!-- STUB 2 -->
       <div class="stub">
 
         <div class="stub-title">QUICKCON PAYMENT STUB</div>
@@ -241,9 +240,18 @@
 
             <div class="line"><span>AMOUNT</span><input id="stub2-amount-due" value="P 1,000.00" style="font-weight:bold; font-size: 15px;"></div>
             <div class="line"><span>CUSTOMER ID</span><input id="stub2-credentials" style="font-weight:bold;"></div>
-            <div class="line"><span>BILLING</span><input id="stub-billing" style="font-weight:bold;" value="MAY 1-31, 2026"></div>
-            <div class="line"><span>DUE DATE</span><input id="stub-due-date" type="date" style="font-weight:bold;"></div>
-            <div class="line"><span>GCASH/MAYA</span><input id="stub-gcash" style="font-weight:bold;" value="09362169215"></div>
+            <div class="line">
+              <span>BILLING</span>
+              <input class="stub-billing-input" style="font-weight:bold;" readonly>
+            </div>
+            <div class="line">
+              <span>DUE DATE</span>
+              <input class="stub-due-date-input" style="font-weight:bold;" readonly>
+            </div>
+            <div class="line">
+              <span>GCASH/MAYA</span>
+              <input id="stub2-gcash" style="font-weight:bold;" value="09362169215">
+            </div>
 
           </div>
 

@@ -419,3 +419,18 @@ td{
     outline:none !important;
   }
 }
+
+.input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  padding: 2px 4px;
+  
+  /* Keeps dropdowns looking exactly like clean text inputs */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; 
+}
