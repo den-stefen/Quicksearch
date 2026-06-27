@@ -1,3 +1,0 @@
---@block
-
-select * from USERS;

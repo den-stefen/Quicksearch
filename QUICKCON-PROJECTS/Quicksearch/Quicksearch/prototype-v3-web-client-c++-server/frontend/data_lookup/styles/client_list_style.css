@@ -1,0 +1,281 @@
+/* =========================
+    COMPACT DATA-FIRST VARIABLES
+========================= */
+:root {
+    --bg: #f1f5f9;
+    --surface: #ffffff;
+    --text-main: #334155;    
+    --text-muted: #64748b;
+    --accent: #2563eb;       /* Sharper Blue */
+    --brand-blue: #0003cc;
+    --border: #cbd5e1;       /* Slightly darker for cell definition */
+    --row-hover: #f1f5f9;
+    --header-bg: #f8fafc;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text-main);
+    font-size: 13px; /* Smaller base size for high density */
+    line-height: 1.2;
+    min-height: 100vh;
+}
+
+/* =========================
+    MINIMALIST CONTROLS (THE "RIBBON")
+========================= */
+.controls {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    background: rgb(254, 254, 254);
+    border-bottom: 1px solid var(--border);
+    gap: 12px;
+    height: 48px; /* Fixed height for consistency */
+}
+
+.controls img {
+    height: 28px; /* Compact logo */
+    width: auto;
+}
+
+#tableSearch {
+    height: 32px;
+    flex: 0 1 300px;
+    padding: 0 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    font-size: 12px;
+}
+
+#add-customer-btn {
+    height: 32px;
+    padding: 0 15px;
+    border-radius: 4px;
+    background: var(--brand-blue);
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.count-badge { 
+    font-size: 11px;
+    padding: 2px 8px;
+    background: #e2e8f0;
+    border-radius: 12px;
+    color: var(--text-main);
+}
+
+/* =========================
+    EXCEL-STYLE TABLE GRID
+========================= */
+#app-container { 
+    width: 100%; /* Use full width for Excel feel */
+    margin: 0 !important; 
+    padding: 0 !important;
+}
+
+.scroll-area { 
+    overflow: auto; 
+    height: calc(100vh - 48px); /* Fill remaining viewport */
+    background: white;
+}
+
+table {
+    width: max-content; /* Allows horizontal scrolling like a real sheet */
+    min-width: 100%;
+    border-collapse: collapse; /* Critical for the grid look */
+    table-layout: fixed; /* Faster rendering */
+}
+
+th {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    background: var(--header-bg);
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-right: 1px solid var(--border);
+    border-bottom: 2px solid var(--border);
+    user-select: none;
+}
+
+td {
+    padding: 6px 12px; /* Tight vertical padding */
+    border-right: 1px solid #edf2f7;
+    border-bottom: 1px solid #edf2f7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.1s;
+    cursor: pointer;
+}
+
+/* Zebra Striping */
+tr:nth-child(even) td {
+    background-color: #fafafa;
+}
+
+tr:hover td { 
+    background-color: #f0f7ff !important; /* Light blue highlight */
+}
+
+/* =========================
+    SMALL-SCALE UTILITIES
+========================= */
+.delete-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    margin: 0;
+}
+
+.delete-btn img {
+    width: 14px;
+    height: 14px;
+}
+
+/* Scrollbar refinement */
+.scroll-area::-webkit-scrollbar { width: 10px; height: 10px; }
+.scroll-area::-webkit-scrollbar-track { background: #f1f1f1; }
+.scroll-area::-webkit-scrollbar-thumb { 
+    background: #ccc; 
+    border: 2px solid #f1f1f1;
+    border-radius: 5px;
+}
+
+/* =========================
+    LOW-RESOLUTION OPTIMIZATION
+========================= */
+@media (max-height: 700px) {
+    body { font-size: 12px; }
+    th, td { padding: 4px 8px; }
+    .controls { height: 40px; }
+    .controls img { height: 22px; }
+}
+
+@media (max-width: 768px) {
+    .controls {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+    #tableSearch { flex: 0 0 150px; }
+}
+
+/* =========================
+    REFINED DELETE HOVER EFFECT
+========================= */
+
+/* The 'Danger Row' effect - highlights the whole row when hovering the delete button */
+#tableBody tr:has(.delete-btn:hover) td {
+    background-color: #fff1f2 !important; /* Soft red background */
+    color: #e11d48;                       /* Alert red text */
+    border-bottom-color: #fecdd3;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    width: 28px;        /* Compact size */
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s ease;
+    margin: 0 auto;
+}
+
+.delete-btn img {
+    width: 16px;        /* Smaller icon for high-density */
+    height: 16px;
+    opacity: 0.4;       /* Subtle when not active */
+    transition: filter 0.1s;
+}
+
+/* Button specific hover */
+.delete-btn:hover {
+    background: #e11d48;
+    transform: scale(1.1);
+}
+
+.delete-btn:hover img {
+    filter: brightness(0) invert(1); /* Turns icon white */
+    opacity: 1;
+}
+
+/* Keep cell borders clean during hover */
+#tableBody tr:hover td {
+    border-right-color: rgba(0,0,0,0.05);
+}
+
+/* Base Badge Design */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 4px; /* Soft square or change to 12px for a pill shape */
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+/* Active: Light Green Text/BG */
+.status-badge.badge-current {
+    background-color: #e2f5ea;
+    color: #135232;
+     font-weight: bold;
+}
+
+/* Delinquent: Light Red Text/BG */
+.status-badge.badge-delinquent {
+    background-color: #fce8e6;
+    color: #a8201a;
+     font-weight: bold;
+}
+
+/* Disconnected: Clean Gray Text/BG */
+.status-badge.badge-disconnected {
+    background-color: #3d3d3d5c;
+    color: #000000;
+     font-weight: bold;
+}
+
+
+/* Delinquent: Light Red Text/BG */
+.status-badge.badge-pull-out {
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* New install: Light Blue/BG */
+.status-badge.badge-new-install {
+    background-color: #0047ab;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+
+/* Default Fallback */
+.status-badge.badge-default {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--text-tertiary, #aaaaaa);
+}
