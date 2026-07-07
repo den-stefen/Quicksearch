@@ -8,17 +8,14 @@ QuickSearch Billing Management System helps businesses manage the full billing l
 
 ## ✨ Features
 
-- 🔍 **Quick Search** — Instantly search and filter customers, invoices, and transactions
-- 🧾 **Invoice Management** — Create, edit, and send invoices
-- 💳 **Payment Tracking** — Record and monitor payment statuses (paid, pending, overdue)
+- 🔍 **Quick Search** — Instantly search and filter customers
+- 💳 **Payment Tracking** — Record and update payment statuses (paid, pending, overdue)
 - 👤 **Customer Accounts** — Manage customer profiles and billing history
-- 📊 **Reports & Analytics** — Generate billing summaries and revenue reports
-- 🔔 **Notifications** — Automated reminders for upcoming or overdue payments
 
 ## 🛠️ Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript 
-- **Backend:** C++. SQL 
+- **Backend:** C++, SQL 
 - **Database:** MariaDB
 
 ## 🚀 Getting Started
@@ -32,40 +29,8 @@ Make sure you have the following installed:
 
 ### Installation
 
-1. Clone the repository
-   ```bash
-   git clone https://github.com/fen-lowcode/QUICKCON-PROJECTS.git
-   cd QUICKCON-PROJECTS
-   ```
-
-2. Install dependencies
-   ```bash
-   npm install
-   ```
-
-3. Configure environment variables
-   ```bash
-   cp .env.example .env
-   # Update .env with your database credentials and settings
-   ```
-
-4. Run the application
-   ```bash
-   npm start
-   ```
-
-5. Open your browser and go to `http://localhost:3000`
-
 ## 📁 Project Structure
 
-```
-QUICKCON-PROJECTS/
-├── src/                # Source code
-├── public/             # Static assets
-├── config/             # Configuration files
-├── docs/               # Documentation
-└── README.md
-```
 
 ## 🤝 Contributing
 
