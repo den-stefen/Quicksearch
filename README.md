@@ -2,23 +2,23 @@
 
 A billing management system built to simplify invoicing, payment tracking, and customer account management for small to medium-sized businesses.
 
-## 📋 Overview
+## Overview
 
 QuickSearch Billing Management System helps businesses manage the full billing lifecycle — from creating invoices to tracking payments and generating biils — through a simple friendly interface.
 
-## ✨ Features
+## Features
 
-- 🔍 **Quick Search** — Instantly search and filter customers
-- 💳 **Payment Tracking** — Record and update payment statuses (paid, pending, overdue)
-- 👤 **Customer Accounts** — Manage customer profiles and billing history
+- **Quick Search** — Instantly search and filter customers
+- **Payment Tracking** — Record and update payment statuses (paid, pending, overdue)
+- **Customer Accounts** — Manage customer profiles and billing history
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend:** HTML, CSS, JavaScript 
 - **Backend:** C++, SQL 
 - **Database:** MariaDB
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -29,10 +29,10 @@ Make sure you have the following installed:
 
 ### Installation
 
-## 📁 Project Structure
+## Project Structure
 
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! To contribute:
 
