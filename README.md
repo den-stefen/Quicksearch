@@ -1,10 +1,15 @@
-# QuickSearch Billing Management System
+
+
+![image](./img/quicksearch-logo.png)
+---
 
 A billing management system built to simplify invoicing, payment tracking, and customer account management for Quickcon Internet Installation Services.
 
 ## Overview
 
 QuickSearch Billing Management System helps Quickcon manage the full billing lifecycle from creating invoices to tracking payments and generating biils through a simple friendly interface.
+
+![image](./img/login.png)
 
 ## Features
 
