@@ -41,14 +41,30 @@ A web app that puts the whole billing cycle in one place. Staff can find a custo
 
 ## Screenshots
 
-<table>
+<table width="100%">
   <tr>
-    <td align="center"><img src="./img/login.png" alt="Login page" /><br /><sub><b>Staff login</b></sub></td>
-    <td align="center"><img src="./img/bill-gen.png" alt="Bill generator" /><br /><sub><b>Bill generator</b></sub></td>
+    <td width="50%" align="center">
+      <img src="./img/login.png" alt="Login page" width="100%" />
+      <br />
+      <sub><b>Staff login</b></sub>
+    </td>
+    <td width="50%" align="center">
+      <img src="./img/bill-gen.png" alt="Bill generator" width="100%" />
+      <br />
+      <sub><b>Bill generator</b></sub>
+    </td>
   </tr>
   <tr>
-    <td align="center"><img src="./img/cinfo.png" alt="Customer information" /><br /><sub><b>Customer information</b></sub></td>
-    <td align="center"><img src="./img/payment_processing.png" alt="Payment processing" /><br /><sub><b>Payment processing</b></sub></td>
+    <td width="50%" align="center">
+      <img src="./img/cinfo.png" alt="Customer information" width="100%" />
+      <br />
+      <sub><b>Customer information</b></sub>
+    </td>
+    <td width="50%" align="center">
+      <img src="./img/payment_processing.png" alt="Payment processing" width="100%" />
+      <br />
+      <sub><b>Payment processing</b></sub>
+    </td>
   </tr>
 </table>
 
