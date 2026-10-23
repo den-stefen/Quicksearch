@@ -25,6 +25,7 @@
 | **Used by** | Quickcon staff, for daily bill payment processing |
 | **Stack** | C++ (custom backend), MariaDB, vanilla HTML/CSS/JavaScript |
 
+
 ## The Problem
 
 Quickcon billed 1,400 internet subscribers using Google spreadsheets. with only 3 staffs Looking up a customer, confirming who had paid, and producing a bill thru microsoft word was slow and easy to get wrong.
@@ -67,6 +68,9 @@ A web app that puts the whole billing cycle in one place. Staff can find a custo
     </td>
   </tr>
 </table>
+
+
+> **Disclaimer:** This project is a showcase. All customer data, names, figures, and screenshots shown here are fictional and for demonstration purposes only.
 
 ## Technical Highlights
 
