@@ -40,7 +40,7 @@ I built a web app that centralizes the billing workflow:
 
 ---
 
-## Key Features (what the interviewer should notice)
+## Key Features 
 - **Instant customer search** across hundreds of records
 - **Payment status tracking**: `paid`, `pending`, `overdue`
 - **Full payment history** per customer account
