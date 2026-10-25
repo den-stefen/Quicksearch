@@ -3,95 +3,115 @@
 <img src="./img/quicksearch-logo.png" alt="QuickSearch logo" width="500" />
 
 # QuickSearch Billing Management System
-
-**A full-stack billing system I designed and built solo for Quickcon Internet Installation Services.**
-
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?logo=cplusplus&logoColor=white)
-![MariaDB](https://img.shields.io/badge/MariaDB-003545?logo=mariadb&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+**A full-stack billing system for Quickcon Internet Installation Services**
 
 </div>
 
 ---
 
 ## At a Glance
-
-| | |
+| Item | Details |
 |---|---|
-| **Role** | Sole developer: backend, database, frontend, and deployment |
-| **Duration** | 3 months |
-| **Used by** | Quickcon staff, for daily bill payment processing |
+| **Role** | Sole developer (backend, DB, frontend, deployment) |
+| **Duration** | ~3 months |
+| **Used by** | Quickcon staff (daily bill payment processing) |
 | **Stack** | C++ (custom backend), MariaDB, vanilla HTML/CSS/JavaScript |
-
-
-## The Problem
-
-Quickcon billed 1,400 internet subscribers using Google spreadsheets. with only 3 staffs Looking up a customer, confirming who had paid, and producing a bill thru microsoft word was slow and easy to get wrong.
-
-## What I Built
-
-A web app that puts the whole billing cycle in one place. Staff can find a customer, record a payment, review their payment history, and print a bill generated automatically from the customer's record. Bills stay editable, so staff can make adjustments when a case needs it.
-
-- **Instant customer search** across hundreds of records
-- **Payment tracking** with `paid`, `pending`, and `overdue` statuses
-- **Payment history** for every customer account
-- **Automatic bill generation and printing** from stored customer data
-- **Staff login** with hashed passwords and token-based sessions
-
-## Screenshots
-
-<table width="100%">
-  <tr>
-    <td width="50%" align="center">
-      <img src="./img/login.png" alt="Login page" width="100%" />
-      <br />
-      <sub><b>Staff login</b></sub>
-    </td>
-    <td width="50%" align="center">
-      <img src="./img/bill-gen.png" alt="Bill generator" width="100%" />
-      <br />
-      <sub><b>Bill generator</b></sub>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" align="center">
-      <img src="./img/cinfo.png" alt="Customer information" width="100%" />
-      <br />
-      <sub><b>Customer information</b></sub>
-    </td>
-    <td width="50%" align="center">
-      <img src="./img/payment_processing.png" alt="Payment processing" width="100%" />
-      <br />
-      <sub><b>Payment processing</b></sub>
-    </td>
-  </tr>
-</table>
-
-
-> **Disclaimer:** This project is a showcase. All customer data, names, figures, and screenshots shown here are fictional and for demonstration purposes only.
-
-## Technical Highlights
-
-- **Custom C++ backend.** I wrote the server, request handling, authentication, and database layer myself in C++ instead of using a web framework due to the lack of proper hardware. Code is split into separate modules for accounts, tokens, and database access.
-- **Secure authentication.** Passwords are hashed with libsodium, and sessions use JWTs.
-- **Security Audit.** I used burpsuite to conduct security test especially user athentication and authorization
-- **Relational data model.** MariaDB tables for users, customer records, and payment history, accessed through MariaDB Connector/C++.
-- **No frontend frameworks.** The UI is plain HTML, CSS, and JavaScript, which keeps it fast and easy for non-technical staff to use.
-- **Debugging at the network level.** I used Wireshark to inspect and debug client-server traffic during development.
-
-## Challenges & What I Learned
-
-- **[Challenge 1]:** e.g. "Keeping bills to get made and print much faster, which i solved by providing a template in the browser thru html and css and printed directly from it"
-- **[Challenge 2]:** e.g. "Keeping multiple users from breaking data when accessed at the same time, which i solved by utilizing mutex in concurrency concept"
-
-- Lessons learned: 
-
-## Impact
-
-
 
 ---
 
-<sub>Source code is private to respect the client's customer data. Happy to walk through the code and architecture in an interview.</sub>
+## The Problem
+Quickcon handled **1,400 internet subscribers** using **Google Sheets** with only **3 staff**.
+
+That made daily work slow and error-prone:
+- searching customers
+- confirming who paid
+- generating bills via manual Word templates
+
+---
+
+## My Solution
+I built a web app that centralizes the billing workflow:
+- staff search customers instantly
+- record payments
+- review payment history
+- generate & print bills automatically from stored customer data
+
+> Bills remain editable so staff can handle exceptions without breaking the workflow.
+
+---
+
+## Key Features (what the interviewer should notice)
+- **Instant customer search** across hundreds of records
+- **Payment status tracking**: `paid`, `pending`, `overdue`
+- **Full payment history** per customer account
+- **Automatic bill generation + printing** from customer records
+- **Staff authentication**: hashed passwords + token-based sessions
+
+---
+
+> **Presentation-only:** All customer data and figures shown in the screenshots are fictional and for demonstration purposes only.
+
+
+## Screenshots 
+<div align="center">
+
+| | |
+|---|---|
+| <img src="./img/login.png" alt="Staff login" width="100%"> | <img src="./img/customer-list.png" alt="Customer list" width="100%"> |
+| <sub><b>Staff login</b></sub> | <sub><b>Customer list</b></sub> |
+| <img src="./img/cinfo.png" alt="Customer information" width="100%"> | <img src="./img/payment_processing.png" alt="Payment processing" width="100%"> |
+| <sub><b>Customer info</b></sub> | <sub><b>Payment processing</b></sub> |
+| <img src="./img/bill-gen.png" alt="Bill generator" width="100%"> | <img src="./img/add-customer.png" alt="Add customer" width="100%"> |
+| <sub><b>Bill generator</b></sub> | <sub><b>Add customer</b></sub> |
+
+</div>
+
+
+</div>
+
+---
+
+## Technical Highlights
+### Custom C++ Backend 
+- Implemented request handling, authentication, and DB access in C++
+- Code split into modules for accounts, tokens, and database access
+
+### Secure Authentication
+- Password hashing with **libsodium**
+- Sessions via **JWT tokens**
+
+### Security Testing
+- Used **Burp Suite** focusing on authentication + authorization
+
+### Data Model
+- **MariaDB relational tables** for:
+  - users
+  - customer records
+  - payment history
+- Access via **MariaDB Connector/C++**
+
+### Frontend Approach
+- **No frameworks** (plain HTML/CSS/JS) for speed and simplicity for non-technical staff
+
+### Debugging & Reliability
+- Used **Wireshark** to inspect and debug client-server traffic during development
+
+---
+
+## Challenges & What I Learned
+Use this section as your “interview gold”:
+- **Concurrency & data safety**: i've learned how to prevent simultaneous staff actions from corrupting data (mutex-based approach)
+- **Fast bill generation & printing**: Built a browser template that staff can you use to directly print from it
+- **Architecture Design** I've learned designing and building a REST archiceture web application
+- **Authentication and Authorization**: I've learned to use JWT for security
+
+---
+
+## Impact
+
+- Reduced billing time per customer
+- Fewer payment mistakes / fewer manual steps
+- Faster bill generation & printing
+- Faster data review and payment history checking
+
+---
